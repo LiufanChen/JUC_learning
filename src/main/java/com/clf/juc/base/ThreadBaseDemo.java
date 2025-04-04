@@ -15,6 +15,7 @@ public class ThreadBaseDemo
         Thread t1 = new Thread(() -> {
             int i = 0;
             while(i<10){
+
                 System.out.println(i++);
             }
         },"t1");
