@@ -1,0 +1,14 @@
+# 1. 进入目录
+cd "D:\Person\projects2\JUC_learning\src\main\java\com\clf\juc\native_demo"
+
+# 2. 编辑文件，注释掉包声明（在文件开头添加 // ）
+(Get-Content HelloJNI.java) -replace '^package.*', '// $0' | Set-Content HelloJNI.java
+
+# 3. 重新编译
+javac HelloJNI.java
+
+# 4. 运行
+java "-Djava.library.path=." HelloJNI
+
+# 5. 测试成功后，恢复包声明
+(Get-Content HelloJNI.java) -replace '^// (package.*)', '$1' | Set-Content HelloJNI.java
